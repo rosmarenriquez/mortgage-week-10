@@ -1,0 +1,20 @@
+html {
+    margin: auto;
+}
+body{
+    background-color:rgb(189, 211, 214)
+}
+
+table, td, th {
+    border: 2px solid rgb(122, 110, 230);
+    padding: 5px;
+    background-color: rgb(94, 89, 89);
+    color: white;
+}
+
+h1{
+    font-family: Georgia; 
+    text-align:center; 
+    background-color:rgb(59, 159, 172); 
+    color: #ffffff
+}

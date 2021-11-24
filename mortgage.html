@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Calculator</title>
+    <link rel="stylesheet" href="mortgage.css"/>
+</head>
+
+<!--Body starts here-->
+<body>
+
+<h1>Mortgage Calculator</h1>
+<p>
+    Welcome to the Mortgage Calculator. Please enter the correct values, so you can have the correct result.
+</p>
+    <!--FORM-->
+    <form action="mortgage.php" method="GET" onReset="resetBorders()">
+        <div>
+            <label>APR%: </label>
+            <input type="text" id="apr" name="APR" placeholder="Insert APR here" onInput="validateApr(this.value)" onfocus="resetApr()" required/>
+        </div>
+        <p id="apr1"></p>
+            
+        <div>
+            <label>Loan Term: </label>
+            <input type="text" id="term" name="TERM" placeholder="Insert Loan Term here" onInput="validateTerm(this.value)" onfocus="resetTerm()" required/> 
+        </div>
+        <p id="term1"></p>
+
+        <div>
+            <label>Loan Amount: </label>
+            <input type="text" id="amount" name="AMOUNT" placeholder="Insert Loan Amount here" onInput="validateAmount(this.value)" onfocus="resetAmount()" required/>
+        </div>
+        <p id="amount1"></p>
+
+        <button type="submit" name="submit" value="submit" class="btn1">Calculate</button>
+        <button type="reset" name="clear" value="Clear" onclick="getFocus()" class="btn2">Reset</button>
+    
+    </form>
+    <!--END OF FORM-->
+
+    <!--JAVASCRIPT-->
+    <script>
+
+        function getFocus(){
+         document.getElementById('apr').focus();
+         document.getElementById('apr').style.border = "thin solid black"
+        }
+        
+        window.onload = resetBorders()
+        function resetApr() {
+    document.getElementById('apr').placeholder = 'Insert APR here';
+}
+
+
+        function validateApr() {
+
+if (apr.value == "" || apr.value > 25 || apr.value < 0)
+{
+    document.getElementById('apr').value = '';
+    document.getElementById('apr1').innerHTML = 'Invalid Apr. Enter a value between 0 and 25';
+    document.getElementById('apr').style.border = 'thin solid red';
+} 
+else
+{
+    document.getElementById('apr').style.border = 'thin solid lightgrey';
+    document.getElementById('apr1').innerHTML = "";
+}
+}
+
+function resetTerm() {
+    document.getElementById('term').placeholder = 'Insert Loan Term here';
+}
+
+function validateTerm() {
+
+if (term.value == "" || term.value > 40 || term.value < 0)
+{
+    document.getElementById('term').value = '';
+    document.getElementById('term1').innerHTML = 'Invalid Term. Enter a value between 0 and 40';
+    document.getElementById('term').style.border = 'thin solid red';
+} 
+else
+{
+    document.getElementById('term').style.border = 'thin solid lightgrey';
+    document.getElementById('term1').innerHTML = "";
+}
+}
+
+
+function resetAmount() {
+    document.getElementById('amount').placeholder = 'Insert Loan Amount here';
+}
+
+function validateAmount() {
+
+if (amount.value == "0")
+{
+    document.getElementById('amount').value = '';
+    document.getElementById('amount1').innerHTML = 'Invalid Amount';
+    document.getElementById('amount').style.border = 'thin solid red';
+} 
+else
+{
+    document.getElementById('amount').style.border = 'thin solid lightgrey';
+    document.getElementById('amount1').innerHTML = "";
+}
+}
+
+function resetBorders() {
+    document.getElementById('apr').style.border = 'thin solid lightgrey';
+    document.getElementById('apr1').innerHTML = '';
+    document.getElementById('term').style.border = 'thin solid lightgrey';
+    document.getElementById('term1').innerHTML = '';
+    document.getElementById('amount').style.border = 'thin solid lightgrey';
+    document.getElementById('amount1').innerHTML = '';
+}
+
+    </script>
+<footer> 
+    &copy; 2021 | Rosmar Enriquez | CS 213 Web Engineering
+</footer>
+<!--Body ends here-->
+</body>
+</html>
